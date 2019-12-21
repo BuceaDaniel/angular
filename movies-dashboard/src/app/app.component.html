@@ -1,0 +1,18 @@
+<!-- <input type="text" (input)="search()" [(ngModel)]="movieTitle">
+{{movieTitle}} --- {{resultNumber}}
+<button (click)="search('click')">Click me</button>
+<ul>
+  <li *ngFor="let movie of movies">
+    <span> {{movie.Title}}</span>
+    <span><button (click)="addToFavourite(movie)">Add to Favourite</button></span>
+    <span><button (click)="removeFavourite(movie.imdbID)">Remove </button></span>
+  </li>
+</ul>
+<br><br>
+<ul>
+  <li *ngFor="let movie of favMovies">
+    <span> {{movie.Title}}</span>
+    <span><button (click)="viewDetails(movie.imdbID)">View Details</button></span>
+  </li>
+</ul> -->
+<router-outlet></router-outlet>

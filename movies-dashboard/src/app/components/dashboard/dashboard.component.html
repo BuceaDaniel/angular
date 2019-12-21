@@ -1,0 +1,18 @@
+<div class="dashboard-page">
+    <section class="app-title">movie<br> search</section>
+    <section class="favorite-movies">
+        <div (click)="scrollMovies('left')" class="arrow left-arrow"></div>
+        <div class="movies">
+            <div *ngFor="let movie of favMovies" class="card">
+                <img [src]="movie.Poster" alt="movie poster">
+                <div class="card-body">
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+        </div>
+        <div (click)="scrollMovies('right')" class="arrow right-arrow"></div>
+    </section>
+    <section class="go-to-search">
+        <a routerLink="/search" routerLinkActive="active">Search for more <div></div></a>
+    </section>
+</div>

@@ -1,0 +1,74 @@
+@import '../../../styles.sass'
+
+.dashboard-page
+    background-color: $bg-color
+    width: 100%
+    height: 96vh
+    margin-top: 2vh
+    overflow: hidden
+
+.favorite-movies
+    flex: 1
+    padding-top: 8vh
+    display: flex
+    width: 100%
+    margin: 0 auto
+    overflow: hidden
+    position: relative
+    height: 60vh
+
+.arrow
+    padding: 0 10px
+    margin: 0 50px
+    background-repeat: no-repeat
+    background-position: center
+    width: 2%
+    cursor: pointer
+
+.right-arrow
+    background-image: url("../../../assets/img/right-arrow.svg")
+
+.left-arrow
+    background-image: url("../../../assets/img/left-arrow.svg")
+
+.movies
+    flex: 1
+    display: flex
+    width: 90%
+    margin: 0 auto
+    overflow: hidden
+    position: relative
+
+.card
+    margin: 0 20px
+    min-width: 18rem
+    border: none
+    border-radius: 20px
+
+.card:nth-of-type(1)
+    margin: 0
+    margin-right: 20px
+
+.go-to-search
+    height: 20vh
+    color: $font-color
+    padding-top: 5vh
+    text-align: center
+
+.go-to-search
+    div
+        background-image: url("../../../assets/img/go-to-search.svg")
+        background-repeat: no-repeat
+        background-position: center
+        width: 14px
+        height: 14px
+        display: inline-block
+        margin-left: 8px
+a
+    cursor: pointer
+    color: $font-color
+    text-decoration: none
+
+a:hover
+    color: $font-color
+    text-decoration: none
