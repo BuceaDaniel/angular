@@ -14,11 +14,17 @@
                         class="posterCover">
                     </div>
                     <div class="row">
-                        <div class="col-md-8 movie-desc">
-                            <p class="movie-title">{{sMovie.Title.length > 40 ? (sMovie.Title | slice:0:40)+'...' : sMovie.Title }}</p>
-                            <p class="movie-type">{{sMovie.Year}} | {{sMovie.Type}}</p>
+                        <div class="col-md-8">
+                            <div class="movie-desc">
+                                <p class="movie-title">
+                                    {{sMovie.Title.length > 40 ? (sMovie.Title | slice:0:40)+'...' : sMovie.Title }}</p>
+                                <p class="movie-type">{{sMovie.Year}} | {{sMovie.Type}}</p>
+                            </div>
                         </div>
-                        <div class="col-md-4"></div>
+                        <div class="col-md-4">
+                            <a [routerLink]="'/movie/'+sMovie.imdbID" routerLinkActive="active" class="btn-details">See
+                                More</a>
+                        </div>
                     </div>
                 </div>
             </div>

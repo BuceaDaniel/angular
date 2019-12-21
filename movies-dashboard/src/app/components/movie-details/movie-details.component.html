@@ -1,1 +1,32 @@
-<p>movie-details works!</p>
+<div class="movie-details-page">
+    <section class="app-title">movie<br> search</section>
+    <section class="movie-details-section">
+        <div class="row">
+            <div class="col-md-5">
+                <div class="poster"
+                    [ngStyle]="{'background-image': currentMovie.Poster != 'N/A' ? 'url('+currentMovie.Poster+')' : 'url('+defaultPoster+')'}">
+                </div>
+            </div>
+            <div class="col-md-7">
+                <div class="details">
+                    <div class="header">
+                        <div class="row">
+                            <div class="col-md-9">
+                                <p class="title">{{currentMovie.Title}}</p>
+                                <p class="det">{{currentMovie.Rated}} | {{currentMovie.Released}} |
+                                    {{currentMovie.Runtime}} </p>
+                                <p class="det">{{currentMovie.Actors}}</p>
+                                <p class="det">{{currentMovie.Type}}</p>
+                            </div>
+                            <div class="col-md-3"></div>
+                        </div>
+                    </div>
+                    <div class="body">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+</div>
