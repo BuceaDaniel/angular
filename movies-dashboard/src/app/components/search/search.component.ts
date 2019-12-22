@@ -9,7 +9,8 @@ import { debounceTime } from "rxjs/operators";
   styleUrls: ["./search.component.sass"]
 })
 export class SearchComponent implements OnInit {
-  private resultNumber: Number;
+  private resultNumber: Number = 0;
+  private currentPage: Number = 1;
   private movies: Array<any> = [];
   private movieTitle: String = "";
   private defaultPoster: String = "../../../assets/img/no-poster.jpg";
@@ -20,13 +21,14 @@ export class SearchComponent implements OnInit {
 
   ngOnInit() {}
 
-  getMovie(movieName: String) {
+  getMovie(movieName: String, page: Number = 0) {
     this.movieAPIService
-      .getMovies(movieName)
+      .getMovies(movieName, page)
       .pipe(debounceTime(500))
       .subscribe(observer => {
         if (observer.Response == "True") {
           this.resultNumber = observer.totalResults;
+          console.log(this.resultNumber);
           this.movies = observer.Search;
         } else {
           this.movies = [];
@@ -38,5 +40,9 @@ export class SearchComponent implements OnInit {
   search(type: String = "input") {
     if (this.movieTitle.length >= 1 || type == "click")
       this.getMovie(this.movieTitle);
+  }
+
+  loadPage(event) {
+    this.getMovie(this.movieTitle, event);
   }
 }

@@ -29,5 +29,12 @@
                 </div>
             </div>
         </div>
+        <div class="pagination-center">
+            <ngb-pagination *ngIf="resultNumber!=0" [collectionSize]="resultNumber" [(page)]="currentPage" [maxSize]="5"
+                [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+
+
     </section>
+
 </div>

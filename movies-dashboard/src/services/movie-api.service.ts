@@ -11,8 +11,12 @@ export class MovieAPIService {
   constructor(private http: HttpClient) {
     this.url = "http://www.omdbapi.com/?apikey=" + environment.API_KEY;
   }
-  public getMovies(movieName: String): Observable<any> {
-    return this.http.get(this.url + "&s=" + movieName);
+  public getMovies(movieName: String, page: Number): Observable<any> {
+    let mUrl =
+      page == 0
+        ? this.url + "&s=" + movieName
+        : this.url + "&s=" + movieName + "&page=" + page;
+    return this.http.get(mUrl);
   }
   public getMovie(movieId: String): Observable<any> {
     return this.http.get(this.url + "&i=" + movieId);

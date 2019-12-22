@@ -13,4 +13,10 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
     this.favMovies = this.favMovieService.getList();
   }
+  removeFavourite(id) {
+    var resp = this.favMovieService.remove(id);
+    if (resp.status == "success") {
+      this.favMovies = resp.movieList;
+    }
+  }
 }

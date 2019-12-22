@@ -11,17 +11,35 @@
                 <div class="details">
                     <div class="header">
                         <div class="row">
-                            <div class="col-md-9">
+                            <div class="col-md-8">
                                 <p class="title">{{currentMovie.Title}}</p>
-                                <p class="det">{{currentMovie.Rated}} | {{currentMovie.Released}} |
-                                    {{currentMovie.Runtime}} </p>
-                                <p class="det">{{currentMovie.Actors}}</p>
-                                <p class="det">{{currentMovie.Type}}</p>
+                                <p class="det">{{movieDet}} </p>
+                                <p class="det">{{currentMovie.Genre}}</p>
+                                <p class="det last">{{currentMovie.Type}}</p>
                             </div>
-                            <div class="col-md-3"></div>
+                            <div class="col-md-4">
+                                <div class="star-container">
+                                    <div class="star">
+                                        <div class="grade">
+                                            <div class="icon"></div> {{currentMovie.imdbRating}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="body">
+                        <div class="plot">
+                            {{currentMovie.Plot}}
+                        </div>
+                        <div class="people">
+                            <div class="director"><b>Director: </b>{{currentMovie.Director}}</div>
+                            <div class="writers"><b>Writers: </b> {{currentMovie.Writer}}</div>
+                            <div class="actors"><b>Stars: </b>{{currentMovie.Actors}}</div>
+                        </div>
+                        <div class="act-btn">
+                            <button (click)="addToFavourite(currentMovie)">Add to Favourite</button>
+                        </div>
 
                     </div>
                 </div>

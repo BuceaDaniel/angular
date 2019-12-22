@@ -15,7 +15,7 @@
     margin: 0 auto
     overflow: hidden
     position: relative
-    height: 60vh
+    height: 58vh
 
 .arrow
     padding: 0 10px
@@ -45,6 +45,10 @@
     border: none
     border-radius: 20px
 
+.card-body
+    .col-md-6
+        padding: 0
+
 .card:nth-of-type(1)
     margin: 0
     margin-right: 20px
@@ -64,11 +68,25 @@
         height: 14px
         display: inline-block
         margin-left: 8px
-a
-    cursor: pointer
-    color: $font-color
-    text-decoration: none
 
-a:hover
+.go-to-search
+    a
+        cursor: pointer
+        color: $font-color
+        text-decoration: none
+
+.btn
+    width: 80%
+    border: 1px solid $bg-color
+    border-radius: 25px
+    margin: 0 10%
+    // font-weight: bold
+    box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.21)
+
+.see-more
+    background-color: $bg-color
+    color: $font-color
+
+.see-more:hover
     color: $font-color
     text-decoration: none

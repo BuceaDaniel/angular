@@ -6,7 +6,15 @@
             <div *ngFor="let movie of favMovies" class="card">
                 <img [src]="movie.Poster" alt="movie poster">
                 <div class="card-body">
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <a [routerLink]="'/movie/'+movie.imdbID" routerLinkActive="active" href="#"
+                                class="btn see-more">See more</a>
+                        </div>
+                        <div class="col-md-6">
+                            <a href="#" (click)=removeFavourite(movie.imdbID) class="btn">Remove</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
