@@ -11,7 +11,7 @@ const MOVIE_API = "59c5c7ee";
 export class MovieAPIService {
   private url: String;
   constructor(private http: HttpClient) {
-    this.url = "http://www.omdbapi.com/?apikey=" + MOVIE_API;
+    this.url = "https://www.omdbapi.com/?apikey=" + MOVIE_API;
   }
   public getMovies(movieName: String, page: Number): Observable<any> {
     let mUrl =
