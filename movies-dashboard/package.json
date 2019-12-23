@@ -21,6 +21,7 @@
     "@angular/router": "~8.2.14",
     "@ng-bootstrap/ng-bootstrap": "^5.1.4",
     "bootstrap": "^4.4.1",
+    "classlist.js": "^1.1.20150312",
     "ngx-toastr": "^11.2.1",
     "ngx-webstorage-service": "^4.1.0",
     "rxjs": "~6.4.0",
