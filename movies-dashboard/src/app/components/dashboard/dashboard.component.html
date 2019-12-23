@@ -1,24 +1,28 @@
 <div class="dashboard-page">
     <section class="app-title">movie<br> search</section>
-    <section class="favorite-movies">
-        <div (click)="scrollMovies('left')" class="arrow left-arrow"></div>
-        <div class="movies">
-            <div *ngFor="let movie of favMovies" class="card">
-                <img [src]="movie.Poster" alt="movie poster">
-                <div class="card-body">
+    <section class="container">
+        <div *ngIf="favMovies.length > 0" class="movies row">
+            <div *ngFor="let movie of favMovies" class="col-lg-4 col-md-6 col-sm-12 fav-movie-cont">
+                <img [src]="movie.Poster" alt="movie poster" height="400" width="100%" class="poster">
+                <div class="poster-under">
+                    <div class="row">
+                        <div class="col-md-12 movie-title">{{movie.Title}}</div>
+                    </div>
                     <div class="row">
                         <div class="col-md-6">
                             <a [routerLink]="'/movie/'+movie.imdbID" routerLinkActive="active" href="#"
                                 class="btn see-more">See more</a>
                         </div>
                         <div class="col-md-6">
-                            <a href="#" (click)=removeFavourite(movie.imdbID) class="btn">Remove</a>
+                            <a (click)=removeFavourite(movie.imdbID) class="btn">Remove</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div (click)="scrollMovies('right')" class="arrow right-arrow"></div>
+        <div *ngIf="favMovies.length == 0" class="no-fav-movie">
+            Library is Empty. <br>Click below and add something.
+        </div>
     </section>
     <section class="go-to-search">
         <a routerLink="/search" routerLinkActive="active">Search for more <div></div></a>

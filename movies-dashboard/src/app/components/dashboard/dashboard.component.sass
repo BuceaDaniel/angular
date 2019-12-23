@@ -5,53 +5,32 @@
     width: 100%
     height: 96vh
     margin-top: 2vh
-    overflow: hidden
-
-.favorite-movies
-    flex: 1
-    padding-top: 8vh
-    display: flex
-    width: 100%
-    margin: 0 auto
-    overflow: hidden
-    position: relative
-    height: 58vh
-
-.arrow
-    padding: 0 10px
-    margin: 0 50px
-    background-repeat: no-repeat
-    background-position: center
-    width: 2%
-    cursor: pointer
-
-.right-arrow
-    background-image: url("../../../assets/img/right-arrow.svg")
-
-.left-arrow
-    background-image: url("../../../assets/img/left-arrow.svg")
+    overflow-x: hidden
 
 .movies
-    flex: 1
-    display: flex
-    width: 90%
-    margin: 0 auto
-    overflow: hidden
     position: relative
+    width: 100%
+    margin: 0 auto
 
-.card
-    margin: 0 20px
-    min-width: 18rem
-    border: none
-    border-radius: 20px
+.poster
+    border-radius: 10px 10px 0 0
+    box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.21)
 
-.card-body
-    .col-md-6
-        padding: 0
+.fav-movie-cont
+    // background-color: $font-color
+    border-radius: 10px
+    padding: 0 20px 30px 20px
+    margin: 20px 0px
 
-.card:nth-of-type(1)
-    margin: 0
-    margin-right: 20px
+    .poster-under
+        background-color: $font-color
+        padding: 20px 0
+        border-radius: 0px 0px 10px 10px
+        .movie-title
+            text-align: center
+            font-size: 16px
+            font-weight: 600
+            margin: 10px 0
 
 .go-to-search
     height: 20vh
@@ -64,10 +43,9 @@
         background-image: url("../../../assets/img/go-to-search.svg")
         background-repeat: no-repeat
         background-position: center
-        width: 14px
-        height: 14px
-        display: inline-block
-        margin-left: 8px
+        width: 20px
+        height: 15px
+        margin: 0 auto
 
 .go-to-search
     a
@@ -90,3 +68,13 @@
 .see-more:hover
     color: $font-color
     text-decoration: none
+
+.no-fav-movie
+    font-size: 40px
+    color: $font-color
+    text-align: center
+    padding: 20vh 0
+
+@media (max-width: $breakpoint-mobile) 
+    .btn
+        margin-bottom: 10px

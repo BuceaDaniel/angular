@@ -1,27 +1,32 @@
 <div class="search-page">
-    <section class="app-title">movie<br> search</section>
+    <section class="app-title">movie<br> search
+        <div class="menu">
+            <span><a routerLink="/favorite" routerLinkActive="active">Favorite</a></span>
+            <!-- <span>Search</span> -->
+        </div>
+    </section>
     <section class="search-section">
         <div class="form-element">
             <input class="search-box" type="text" placeholder="Movie Title" (input)="search()" [(ngModel)]="movieTitle">
-            <button class="search-btn" type="submit" (click)="search('click')">Search</button>
+            <!-- <button class="search-btn" type="submit" (click)="search('click')">Search</button> -->
         </div>
     </section>
     <section class="search-result">
         <div class=row>
-            <div *ngFor="let sMovie of movies" class="col-md-6 col-sm-6">
+            <div *ngFor="let sMovie of movies" class="col-md-6 col-sm-12">
                 <div class="sContainer">
                     <div [ngStyle]="{'background-image': sMovie.Poster != 'N/A' ? 'url('+sMovie.Poster+')' : 'url('+defaultPoster+')'}"
                         class="posterCover">
                     </div>
                     <div class="row">
-                        <div class="col-md-8">
+                        <div class="col-lg-8 col-md-7 col-sm-6 col-6">
                             <div class="movie-desc">
                                 <p class="movie-title">
-                                    {{sMovie.Title.length > 40 ? (sMovie.Title | slice:0:40)+'...' : sMovie.Title }}</p>
+                                    {{sMovie.Title.length > 25 ? (sMovie.Title | slice:0:25)+'...' : sMovie.Title }}</p>
                                 <p class="movie-type">{{sMovie.Year}} | {{sMovie.Type}}</p>
                             </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-lg-4 col-md-5 col-sm-6 col-6">
                             <a [routerLink]="'/movie/'+sMovie.imdbID" routerLinkActive="active" class="btn-details">See
                                 More</a>
                         </div>
@@ -30,10 +35,12 @@
             </div>
         </div>
         <div class="pagination-center">
-            <ngb-pagination *ngIf="resultNumber!=0" [collectionSize]="resultNumber" [(page)]="currentPage" [maxSize]="5"
-                [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+            <ngb-pagination *ngIf="resultNumber > 0" [collectionSize]="resultNumber" [(page)]="currentPage"
+                [maxSize]="3" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
         </div>
-
+        <div *ngIf="resultNumber == 0" class="no-result">
+            No Result
+        </div>
 
     </section>
 

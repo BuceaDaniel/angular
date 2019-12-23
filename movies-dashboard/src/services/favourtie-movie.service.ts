@@ -9,6 +9,10 @@ const STORAGE_KEY = "movieList";
 })
 export class FavourtieMovieService {
   private userMovieList: Array<any> = [];
+  private searchCache: any = {
+    title: "",
+    page: 1
+  };
   constructor(@Inject(LOCAL_STORAGE) private storage: StorageService) {
     this.userMovieList = this.storage.get(STORAGE_KEY) || [];
   }
@@ -56,5 +60,14 @@ export class FavourtieMovieService {
 
   getList(): Array<any> {
     return this.userMovieList;
+  }
+
+  setSearchQuery(val): void {
+    this.searchCache.title = val.title;
+    this.searchCache.page = val.page;
+  }
+
+  getSearchQuery(): any {
+    return this.searchCache;
   }
 }

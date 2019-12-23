@@ -20,7 +20,7 @@
 .search-box
     width: 350px
     border-radius: 30px
-    line-height: 40px
+    height: 40px
     font-size: 13px
     padding: 0 25px
     border: 1px solid #E5E5E5
@@ -42,7 +42,7 @@
 
 .search-result
     width: 100%
-    padding: 50px 25%
+    padding: 50px 10%
     overflow-y: scroll
     height: 70vh
 
@@ -80,10 +80,23 @@
     font-size: 12px
     padding: 0 16px
     border: none
-    margin-top: 45px
+    margin-top: 30px
     margin-right: 8px
+    text-align: center
     float: right
 
 .pagination-center
     display: flex !important
     justify-content: center !important
+    padding-bottom: 50px
+
+.no-result
+    font-size: 40px
+    color: $bg-color
+    text-align: center
+    padding: 20vh 0
+    font-weight: bold
+
+@media (max-width: $breakpoint-tablet) 
+    .btn
+        margin-bottom: 10px

@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { MovieAPIService } from "src/services/movie-api.service";
 import { FavourtieMovieService } from "src/services/favourtie-movie.service";
+import { ToastrService } from "ngx-toastr";
 
 @Component({
   selector: "app-movie-details",
@@ -19,7 +20,8 @@ export class MovieDetailsComponent implements OnInit {
   constructor(
     private movieAPIService: MovieAPIService,
     private activatedRoute: ActivatedRoute,
-    private favMovieService: FavourtieMovieService
+    private favMovieService: FavourtieMovieService,
+    private toastrService: ToastrService
   ) {
     this.movieId = this.activatedRoute.snapshot.paramMap.get("id");
   }
@@ -44,8 +46,10 @@ export class MovieDetailsComponent implements OnInit {
   addToFavourite(movie) {
     var resp = this.favMovieService.add(movie);
     if (resp.status == "success") {
-      console.log()
+      this.toastrService.success(resp.message);
       // this.favMovies = resp.movieList;
+    } else {
+      this.toastrService.warning(resp.message);
     }
   }
 }

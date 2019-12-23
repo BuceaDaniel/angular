@@ -9,7 +9,7 @@ import { debounceTime } from "rxjs/operators";
   styleUrls: ["./search.component.sass"]
 })
 export class SearchComponent implements OnInit {
-  private resultNumber: Number = 0;
+  private resultNumber: Number = -1;
   private currentPage: Number = 1;
   private movies: Array<any> = [];
   private movieTitle: String = "";
@@ -19,16 +19,26 @@ export class SearchComponent implements OnInit {
     private favMovieService: FavourtieMovieService
   ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    let movie = this.favMovieService.getSearchQuery();
+    if (movie.title != "") {
+      this.movieTitle = movie.title;
+      this.currentPage = movie.page;
+      this.getMovie(movie.title, movie.page);
+    }
+  }
 
   getMovie(movieName: String, page: Number = 0) {
+    this.favMovieService.setSearchQuery({
+      title: this.movieTitle,
+      page: this.currentPage
+    });
     this.movieAPIService
       .getMovies(movieName, page)
       .pipe(debounceTime(500))
       .subscribe(observer => {
         if (observer.Response == "True") {
           this.resultNumber = observer.totalResults;
-          console.log(this.resultNumber);
           this.movies = observer.Search;
         } else {
           this.movies = [];
@@ -38,11 +48,14 @@ export class SearchComponent implements OnInit {
   }
 
   search(type: String = "input") {
-    if (this.movieTitle.length >= 1 || type == "click")
+    if (this.movieTitle.length >= 1 || type == "click") {
       this.getMovie(this.movieTitle);
+    }
+    if (this.movieTitle.length == 0) this.resultNumber = -1;
   }
 
   loadPage(event) {
+    this.currentPage = event;
     this.getMovie(this.movieTitle, event);
   }
 }
