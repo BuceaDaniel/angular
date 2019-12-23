@@ -7,22 +7,22 @@
     </section>
     <section class="movie-details-section">
         <div class="row">
-            <div class="col-md-5">
+            <div class="col-xl-4 col-lg-6 col-md-12">
                 <div class="poster"
                     [ngStyle]="{'background-image': currentMovie.Poster != 'N/A' ? 'url('+currentMovie.Poster+')' : 'url('+defaultPoster+')'}">
                 </div>
             </div>
-            <div class="col-md-7">
+            <div class="col-xl-8 col-lg-6 col-md-12">
                 <div class="details">
                     <div class="header">
                         <div class="row">
-                            <div class="col-md-8">
+                            <div class="col-xl-8 col-lg-12 col-md-12">
                                 <p class="title">{{currentMovie.Title}}</p>
                                 <p class="det">{{movieDet}} </p>
                                 <p class="det">{{currentMovie.Genre}}</p>
                                 <p class="det last">{{currentMovie.Type}}</p>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-xl-4 col-lg-12 col-md-12">
                                 <div class="star-container">
                                     <div class="star">
                                         <div class="grade">
@@ -31,6 +31,11 @@
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="poster-mobile"
+                            [ngStyle]="{'background-image': currentMovie.Poster != 'N/A' ? 'url('+currentMovie.Poster+')' : 'url('+defaultPoster+')'}">
                         </div>
                     </div>
                     <div class="body">
