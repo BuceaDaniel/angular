@@ -3,13 +3,15 @@ import { environment } from "../environments/environment";
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
 
+const MOVIE_API = "59c5c7ee";
+
 @Injectable({
   providedIn: "root"
 })
 export class MovieAPIService {
   private url: String;
   constructor(private http: HttpClient) {
-    this.url = "http://www.omdbapi.com/?apikey=" + environment.API_KEY;
+    this.url = "http://www.omdbapi.com/?apikey=" + MOVIE_API;
   }
   public getMovies(movieName: String, page: Number): Observable<any> {
     let mUrl =
